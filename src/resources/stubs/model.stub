@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Models\{{modelName}};
+
+use GuzzleHttp\Client;
+use Illuminate\Database\Eloquent\Model;
+
+class {{modelName}} extends Model
+{
+    protected $fillable = [];
+    /*
+        |--------------------------------------------------------------------------
+        | Example data
+        |--------------------------------------------------------------------------
+        |
+        | 'name' => [
+        |     'type' => 'text',
+        |     'view' => true
+        | ]
+        |
+        */
+    protected static $data = [];
+
+    public static function getColumns()
+    {
+        return collect(self::$data)
+            ->keys()
+            ->toArray();
+    }
+
+    public static function getData()
+    {
+        return collect(self::$data)
+            ->filter(function($item) {
+                return $item['view'];
+            })
+            ->toArray();
+    }
+}

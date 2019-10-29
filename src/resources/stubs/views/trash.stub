@@ -1,0 +1,13 @@
+@include('layouts.app')
+
+@section('content')
+    <div>
+        <form action="{{ route('config.{{modelNameLowerCase}}.restore') }}" method="GET" class="d-inline">
+            <button class="btn btn-secondary my-auto"><i class="fas fa-trash"></i>&nbsp;&nbsp;Trash</button>
+        </form>
+        <form action="{{ route('config.{{modelNameLowerCase}}.new') }}" method="GET" class="d-inline">
+            <button class="btn btn-primary my-auto"><i class="fas fa-plus"></i>&nbsp;&nbsp;Add {{modelName}}</button>
+        </form>
+    </div>
+    @include('pages.config.{{modelName}}.table')
+@endsection

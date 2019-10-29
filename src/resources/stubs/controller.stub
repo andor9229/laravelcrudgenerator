@@ -1,0 +1,96 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\{{modelName}}\{{modelName}};
+use App\Http\Requests\{{modelName}}\{{modelName}}Request;
+use Illuminate\Http\Request;
+
+class {{modelName}}Controller extends Controller
+{
+    public function index()
+    {
+        return view('pages.config.{{modelName}}.index')
+            ->with('{{modelNamePluralLowerCase}}', {{modelName}}::paginate(10));
+    }
+
+    public function create()
+    {
+        return view('pages.config.{{modelName}}.create')
+            ->with('data', {{modelName}}::getData());
+    }
+
+    public function store({{modelName}}Request $request)
+    {
+        ${{modelNameSingularLowerCase}} = {{modelName}}::create([
+           //insert fields
+        ]);
+
+        return redirect('/config')
+            ->with([
+                'status' =>  __('admin.{{modelName}} added correctly!'),
+                'type' => 'success'
+            ]);
+    }
+
+    public function edit({{modelName}} ${{modelNameSingularLowerCase}})
+    {
+        return view('pages.config.{{modelName}}.edit', compact('{{modelNameSingularLowerCase}}'))
+            ->with('data', {{modelName}}::getData());
+    }
+
+    public function update({{modelName}}Request $request, {{modelName}} ${{modelNameSingularLowerCase}})
+    {
+        ${{modelNameSingularLowerCase}}->update([
+            //insert fields
+        ]);
+
+        return redirect('/config')
+            ->with([
+                'status' =>  __('admin.{{modelName}} update correctly!'),
+                'type' => 'success'
+            ]);
+    }
+
+    public function delete({{modelName}} ${{modelNameSingularLowerCase}})
+    {
+        ${{modelNameSingularLowerCase}}->delete();
+
+        return redirect('/config')
+            ->with([
+                'status' =>  __('admin.{{modelName}} delete correctly!'),
+                'type' => 'success'
+            ]);
+    }
+
+    public function trash()
+    {
+        ${{modelNamePluralLowerCase}} = {{modelName}}::onlyTrashed()->get();
+
+        return view('pages.config.{{modelName}}.trash', compact('{{modelNamePluralLowerCase}}'));
+    }
+
+    public function restore($id)
+    {
+        ${{modelNameSingularLowerCase}} = {{modelName}}::onlyTrashed()->find($id);
+        ${{modelNameSingularLowerCase}}->restore();
+
+        return redirect(route('config.index'))
+            ->with([
+                'status' =>  __('admin.{{modelName}} restore correctly!'),
+                'type' => 'success'
+            ]);
+    }
+
+    public function destroy($id)
+    {
+        ${{modelNameSingularLowerCase}} = {{modelName}}::onlyTrashed()->find($id);
+        ${{modelNameSingularLowerCase}}->forceDelete();
+
+        return redirect(route('config.index'))
+            ->with([
+                'status' =>  __('admin.{{modelName}} delete correctly!'),
+                'type' => 'success'
+            ]);
+    }
+}

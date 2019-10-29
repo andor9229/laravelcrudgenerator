@@ -1,0 +1,18 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+    @foreach(\App\Models\{{modelName}}\{{modelName}}::getColumns() as $column)
+      <th scope="col">{{ $column }}</th>
+    @endforeach
+    </tr>
+  </thead>
+  <tbody>
+   @foreach(${{modelNamePluralLowerCase}} as $rows)
+    <tr>
+        @foreach(\App\Models\{{modelName}}\{{modelName}}::getColumns() as $column)
+            <th scope="row">{{ $rows[$column] }}</th>
+        @endforeach
+    </tr>
+    @endforeach
+  </tbody>
+</table>

@@ -1,0 +1,16 @@
+{
+    "name": "andor9229/laravelcrudgenerator",
+    "description": "A CRUD generator for laravel",
+    "authors": [
+        {
+            "name": "Andrea Ortu",
+            "email": "andrea.ortu.9229@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Andor9229\\LaravelCrudGenerator\\": "src/"
+        }
+    }
+}
