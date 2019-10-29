@@ -60,11 +60,6 @@ class CrudGenerator extends Command
         $this->line('Done!');
     }
 
-    protected function getStub($type)
-    {
-        return file_get_contents(resource_path("stubs/$type.stub"));
-    }
-
     protected function view()
     {
         $this->tableView();
@@ -208,7 +203,6 @@ class CrudGenerator extends Command
             $model->filePutContests();
             $this->info('Model Created!');
         } catch (\Exception $e) {
-            dd($e->getMessage());
             $this->error('Something went wrong!');
         }
     }

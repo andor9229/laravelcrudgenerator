@@ -2,7 +2,6 @@
 
 namespace Andor9229\LaravelCrudGenerator;
 
-use App\Console\Commands\CrudGenerator;
 use Illuminate\Support\ServiceProvider;
 
 class LaravelCrudGeneratorServiceProvider extends ServiceProvider
