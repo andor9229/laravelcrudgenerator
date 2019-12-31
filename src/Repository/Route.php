@@ -39,6 +39,11 @@ class Route extends Crud
         File::append(base_path($this->getPath()), "<?php\n\n");
     }
 
+    public function includeCrudFile()
+    {
+        File::append(base_path($this->dir . "/web.php"), "@include('crud.php')");
+    }
+
     public function appendRoutes()
     {
         $name = Str::lower($this->name);

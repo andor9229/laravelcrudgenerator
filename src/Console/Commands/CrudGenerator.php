@@ -283,6 +283,7 @@ class CrudGenerator extends Command
         try {
             if(! $route->fileAlreadyExists()) {
                 $route->makeCrudFile();
+                $route->includeCrudFile();
             }
 
             $route->appendRoutes();
