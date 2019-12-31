@@ -49,7 +49,7 @@ class Route extends Crud
         $name = Str::lower($this->name);
         $data =
             "Route::group(['prefix' => \"{$name}\", 'as' => \"{$name}.\"], function () {\n" .
-            "\tRoute::get('', '{$this->name}Controller@index')->name('index');\n" .
+            "\tRoute::get('/', '{$this->name}Controller@index')->name('index');\n" .
             "\tRoute::get(\"{{$name}}/edit/\", \"{$this->name}Controller@edit\")->name('edit');\n" .
             "\tRoute::get(\"new\", \"{$this->name}Controller@create\")->name('new');\n" .
             "\tRoute::get(\"{id}/restore\", \"{$this->name}Controller@restore\")->name('restore');\n" .

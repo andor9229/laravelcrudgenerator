@@ -39,6 +39,6 @@ class Crud {
     }
 
     protected function getPath() {
-        return $this->dir . '/'. $this->file;
+        return $this->dir . '/' . $this->file;
     }
 }
