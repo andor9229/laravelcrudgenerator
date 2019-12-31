@@ -59,7 +59,7 @@ class {{modelName}}Controller extends Controller
         return redirect(route("${{modelNameSingularLowerCase}}.index"))
             ->with([
                 'status' =>  __('admin.{{modelName}} delete correctly!'),
-                d'type' => 'success'
+                'type' => 'success'
             ]);
     }
 
