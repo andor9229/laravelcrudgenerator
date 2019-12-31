@@ -1,4 +1,7 @@
-<form method="POST" action="{{ route('config.{{modelNameLowerCase}}.store') }}">
+@extends('layouts.app')
+
+@section('content')
+<form method="POST" action="{{ route('{{modelNameLowerCase}}.store') }}">
     @csrf
     @foreach($data as $index => $d)
         @switch($d['type'])

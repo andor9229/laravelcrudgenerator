@@ -1,4 +1,7 @@
-<form method="POST" action="{{ route('config.{{modelNameLowerCase}}.update', ${{modelNameLowerCase}}) }}">
+@extends('layouts.app')
+
+@section('content')
+<form method="POST" action="{{ route('{{modelNameLowerCase}}.update', ${{modelNameLowerCase}}) }}">
     @method('patch')
     @csrf
     @foreach($data as $index => $d)
