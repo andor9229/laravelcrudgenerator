@@ -1,6 +1,6 @@
 {
     "name": "andor9229/laravelcrudgenerator",
-    "description": "A CRUD generator for laravel",
+    "description": "CRUD generator for laravel",
     "authors": [
         {
             "name": "Andrea Ortu",
