@@ -15,7 +15,7 @@ class Index extends Crud
     public function __construct($name)
     {
         $this->name = $name;
-        $this->dir = "../resources/views/pages/config/{$name}";
+        $this->dir = "../resources/views/pages/{$name}";
         $this->file =  "index.blade.php";
     }
 
