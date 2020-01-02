@@ -38,7 +38,7 @@
             <label for="name" class="col-md-4 col-form-label text-md-right text-capitalize">{{ $index }}</label>
 
             <div class="col-md-6">
-                <input id="{{ $index }}" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ ${{modelNameLowerCase}}[$index] }}" required autocomplete="{{ $index }}" autofocus>
+                <input id="{{ $index }}" type="text" class="form-control @error('name') is-invalid @enderror" name="{{ $index }}" value="{{ ${{modelNameLowerCase}}[$index] }}" required autocomplete="{{ $index }}" autofocus>
 
                 @error($index)
                 <span class="invalid-feedback" role="alert">
