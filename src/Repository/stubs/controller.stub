@@ -26,10 +26,9 @@ class {{modelName}}Controller extends Controller
            //insert fields
         ]);
 
-        return redirect(route("${{modelNameSingularLowerCase}}.index"))
+        return redirect(route("{{modelNameSingularLowerCase}}.index"))
             ->with([
-                'status' =>  __('admin.{{modelName}} added correctly!'),
-                'type' => 'success'
+                'notification' =>  __('admin.{{modelName}} added correctly!'),
             ]);
     }
 
@@ -45,10 +44,9 @@ class {{modelName}}Controller extends Controller
             //insert fields
         ]);
 
-        return redirect(route("${{modelNameSingularLowerCase}}.index"))
+        return redirect(route("{{modelNameSingularLowerCase}}.index"))
             ->with([
-                'status' =>  __('admin.{{modelName}} update correctly!'),
-                'type' => 'success'
+                'notification' =>  __('admin.{{modelName}} update correctly!'),
             ]);
     }
 
@@ -56,10 +54,9 @@ class {{modelName}}Controller extends Controller
     {
         ${{modelNameSingularLowerCase}}->delete();
 
-        return redirect(route("${{modelNameSingularLowerCase}}.index"))
+        return redirect(route("{{modelNameSingularLowerCase}}.index"))
             ->with([
-                'status' =>  __('admin.{{modelName}} delete correctly!'),
-                'type' => 'success'
+                'notification' =>  __('admin.{{modelName}} delete correctly!'),
             ]);
     }
 
@@ -75,10 +72,9 @@ class {{modelName}}Controller extends Controller
         ${{modelNameSingularLowerCase}} = {{modelName}}::onlyTrashed()->find($id);
         ${{modelNameSingularLowerCase}}->restore();
 
-        return redirect(route("${{modelNameSingularLowerCase}}.index"))
+        return redirect(route("{{modelNameSingularLowerCase}}.index"))
             ->with([
-                'status' =>  __('admin.{{modelName}} restore correctly!'),
-                'type' => 'success'
+                'notification' =>  __('admin.{{modelName}} restore correctly!'),
             ]);
     }
 
@@ -87,10 +83,9 @@ class {{modelName}}Controller extends Controller
         ${{modelNameSingularLowerCase}} = {{modelName}}::onlyTrashed()->find($id);
         ${{modelNameSingularLowerCase}}->forceDelete();
 
-        return redirect(route("${{modelNameSingularLowerCase}}.index"))
+        return redirect(route("{{modelNameSingularLowerCase}}.index"))
             ->with([
-                'status' =>  __('admin.{{modelName}} delete correctly!'),
-                'type' => 'success'
+                'notification' =>  __('admin.{{modelName}} delete correctly!'),
             ]);
     }
 }
