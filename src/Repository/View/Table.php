@@ -15,7 +15,7 @@ class Table extends Crud
     public function __construct($name)
     {
         $this->name = $name;
-        $this->dir = "../resources/views/pages/config/{$name}";
+        $this->dir = "../resources/views/pages/{$name}";
         $this->file =  "table.blade.php";
     }
 
