@@ -51,10 +51,10 @@ class Route extends Crud
             "Route::group(['prefix' => \"{$name}\", 'as' => \"{$name}.\"], function () {\n" .
             "\tRoute::get('/', '{$this->name}Controller@index')->name('index');\n" .
             "\tRoute::get(\"{{$name}}/edit/\", \"{$this->name}Controller@edit\")->name('edit');\n" .
-            "\tRoute::get(\"new\", \"{$this->name}Controller@create\")->name('new');\n" .
+            "\tRoute::get(\"new\", \"{$this->name}Controller@create\")->name('create');\n" .
             "\tRoute::get(\"{id}/restore\", \"{$this->name}Controller@restore\")->name('restore');\n" .
             "\tRoute::get(\"trash\", \"{$this->name}Controller@trash\")->name('trash');\n" .
-            "\tRoute::post(\"\", \"{$this->name}Controller@store\")->name('store');\n" .
+            "\tRoute::post(\"/\", \"{$this->name}Controller@store\")->name('store');\n" .
             "\tRoute::patch(\"{{$name}}\", \"{$this->name}Controller@update\")->name('update');\n" .
             "\tRoute::delete(\"{{$name}}\", \"{$this->name}Controller@delete\")->name('delete');\n" .
             "\tRoute::delete(\"{id}/destroy\", \"{$this->name}Controller@destroy\")->name('destroy');\n" .

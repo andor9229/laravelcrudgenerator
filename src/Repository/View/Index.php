@@ -24,10 +24,12 @@ class Index extends Crud
         $this->template = str_replace(
             [
                 '{{modelName}}',
+                '{{modelNamePlural}}',
                 '{{modelNameLowerCase}}',
             ],
             [
                 $this->name,
+                Str::plural($this->name),
                 Str::lower($this->name),
             ],
             $this->getStub('views/index')

@@ -3,11 +3,7 @@
 @section('content')
 <card-component>
     <div slot="header">
-        @if($type === 'create')
-            <h3>Crea Un Nuovo Account</h3>
-        @else
-            <h3>Modifica Account</h3>
-        @endif
+       <h3>Add New {{modelName}}</h3>
     </div>
     <form class="w-4/5" slot="body" method="POST" action="{{ route('{{modelNameLowerCase}}.store') }}">
         @csrf
