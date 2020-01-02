@@ -7,7 +7,9 @@
             "email": "andrea.ortu.9229@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "nesbot/carbon": "2.28.0"
+    },
     "autoload": {
         "psr-4": {
             "Andor9229\\LaravelCrudGenerator\\": "src/"
