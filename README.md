@@ -1,6 +1,6 @@
 # LaravelCrudGenerator
 
-An easy way to use the [official Elastic Search client](https://github.com/elastic/elasticsearch-php) in your Laravel or Lumen applications.
+An easy way to create Crud of a resource.
 
 [![Total Downloads](https://poser.pugx.org/andor9229/laravelcrudgenerator/downloads)](https://packagist.org/packages/andor9229/laravelcrudgenerator)
 [![Latest Stable Version](https://poser.pugx.org/andor9229/laravelcrudgenerator/v/stable)](https://packagist.org/packages/andor9229/laravelcrudgenerator)
