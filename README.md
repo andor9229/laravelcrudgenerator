@@ -17,12 +17,6 @@ Install the current version of the `andor9229/laravelcrudgenerator` package via 
 composer require andor9229/laravelcrudgenerator
 ```
 
-### Laravel
-
-The package's service provider will automatically register its service provider.
-
-Publish the configuration file:
-
 adding the following to your application's `config\app`
 
 ```sh
