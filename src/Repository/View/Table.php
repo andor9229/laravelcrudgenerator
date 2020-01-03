@@ -24,10 +24,12 @@ class Table extends Crud
         $this->template = str_replace(
             [
                 '{{modelName}}',
+                '{{modelNameSingularLowerCase}}',
                 '{{modelNamePluralLowerCase}}',
             ],
             [
                 $this->name,
+                Str::lower($this->name),
                 Str::lower(Str::plural($this->name)),
             ],
             $this->getStub('views/table')
