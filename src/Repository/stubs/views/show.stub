@@ -1,0 +1,16 @@
+@extends('layouts.app')
+
+@section('content')
+     <div class="flex mb-10 justify-center">
+        <card-component class="w-full">
+            <div slot="header" class="w-full flex justify-between">
+                <h3>{{modelNameSingular}}</h3>
+            </div>
+            <div slot="body">
+                @foreach($columns as $column)
+                    <p>{{ $column }}: {{ ${{modelNameSingularLowerCase}}[$column] }}</p>
+                @endforeach
+            </div>
+        </card-component>
+    </div>
+@endsection
