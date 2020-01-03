@@ -11,7 +11,8 @@ class {{modelName}}Controller extends Controller
     public function index()
     {
         return view('pages.{{modelName}}.index')
-            ->with('{{modelNamePluralLowerCase}}', {{modelName}}::paginate(10));
+            ->with('{{modelNamePluralLowerCase}}', {{modelName}}::paginate(10))
+            ->with('type', 'index');
     }
 
     public function create()
@@ -69,7 +70,9 @@ class {{modelName}}Controller extends Controller
     {
         ${{modelNamePluralLowerCase}} = {{modelName}}::onlyTrashed()->get();
 
-        return view('pages.{{modelName}}.trash', compact('{{modelNamePluralLowerCase}}'));
+        return view('pages.{{modelName}}.trash')
+            ->with('{{modelName}}', ${{modelNamePluralLowerCase}})
+            ->with('type', 'trash');
     }
 
     public function restore($id)
