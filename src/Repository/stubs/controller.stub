@@ -29,7 +29,7 @@ class {{modelName}}Controller extends Controller
     public function store({{modelName}}Request $request)
     {
         ${{modelNameSingularLowerCase}} = {{modelName}}::create([
-           //insert fields
+           //TODO insert fields
         ]);
 
         return redirect(route("{{modelNameSingularLowerCase}}.index"))
@@ -47,7 +47,7 @@ class {{modelName}}Controller extends Controller
     public function update({{modelName}}Request $request, {{modelName}} ${{modelNameSingularLowerCase}})
     {
         ${{modelNameSingularLowerCase}}->update([
-            //insert fields
+            //TODO insert fields
         ]);
 
         return redirect(route("{{modelNameSingularLowerCase}}.index"))
@@ -71,7 +71,7 @@ class {{modelName}}Controller extends Controller
         ${{modelNamePluralLowerCase}} = {{modelName}}::onlyTrashed()->get();
 
         return view('pages.{{modelName}}.trash')
-            ->with('{{modelName}}', ${{modelNamePluralLowerCase}})
+            ->with('{{modelNamePluralLowerCase}}', ${{modelNamePluralLowerCase}})
             ->with('type', 'trash');
     }
 
