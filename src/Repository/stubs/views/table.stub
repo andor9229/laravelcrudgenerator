@@ -1,11 +1,36 @@
 <table class="table border w-full" slot="body">
     <tr>
+    <th>Actions</th>
     @foreach(\App\Models\{{modelName}}\{{modelName}}::getColumns() as $column)
       <th scope="col">{{ $column }}</th>
     @endforeach
     </tr>
    @foreach(${{modelNamePluralLowerCase}} as $rows)
     <tr>
+        <td class="flex items-center">
+            @if($type === 'index')
+                <a href="{{ route('monitor.show', [ 'monitor' => $rows['id'] ]) }}" class="button-icon-gray items-center"><i class="far fa-fw fa-eye"></i></a>
+                <a href="{{ route('monitor.edit', [ 'monitor' => $rows['id'] ]) }}" class="button-icon-gray items-center"><i class="fas fa-edit"></i></a>
+                <confirm-delete-component
+                    class="items-center"
+                    url="{{modelNameSingularLowerCase}}/{{${{modelNameSingularLowerCase}}}}->id}}"
+                    resource="{{${{modelNameSingularLowerCase}}}}"
+                    match="name"
+                    delete-message=""
+                    location-href="{{modelNameSingularLowerCase}}"
+                ></confirm-delete-component>
+            @endif
+            @if($type === 'trash')
+                <a href="{{ route('monitor.restore', [ 'monitor' => $rows['id'] ]) }}" class="button-icon-gray items-center"><i class="far fa-fw fa-redo"></i></a>
+                <confirm-delete-component
+                    class="items-center"
+                    url="{{modelNameSingularLowerCase}}/{{${{modelNameSingularLowerCase}}}}->id}}/force-destroy"
+                    resource="{{${{modelNameSingularLowerCase}}}}"
+                    match="name"
+                    delete-message=""
+                    location-href="{{modelNameSingularLowerCase}}"
+                ></confirm-delete-component>
+            @endif
         @foreach(\App\Models\{{modelName}}\{{modelName}}::getColumns() as $column)
             <td scope="row">{{ $rows[$column] }}</th>
         @endforeach
