@@ -20,6 +20,11 @@ class {{modelName}}Controller extends Controller
             ->with('data', {{modelName}}::getData());
     }
 
+    public function show({{modelName}} ${{modelNameSingularLowerCase}})
+    {
+        return view('pages.{{modelName}}.show', compact('{{modelNameSingularLowerCase'));
+    }
+
     public function store({{modelName}}Request $request)
     {
         ${{modelNameSingularLowerCase}} = {{modelName}}::create([
@@ -34,7 +39,7 @@ class {{modelName}}Controller extends Controller
 
     public function edit({{modelName}} ${{modelNameSingularLowerCase}})
     {
-        return view('pages.config.{{modelName}}.edit', compact('{{modelNameSingularLowerCase}}'))
+        return view('pages.{{modelName}}.update', compact('{{modelNameSingularLowerCase}}'))
             ->with('data', {{modelName}}::getData());
     }
 

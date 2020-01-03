@@ -4,6 +4,7 @@ namespace Andor9229\LaravelCrudGenerator;
 
 use Andor9229\LaravelCrudGenerator\Repository\View\Create;
 use Andor9229\LaravelCrudGenerator\Repository\View\Index;
+use Andor9229\LaravelCrudGenerator\Repository\View\Show;
 use Andor9229\LaravelCrudGenerator\Repository\View\Table;
 use Andor9229\LaravelCrudGenerator\Repository\View\Trash;
 use Andor9229\LaravelCrudGenerator\Repository\View\Update;
@@ -69,6 +70,7 @@ class CrudGenerator extends Command
     {
         $this->tableView();
         $this->indexView();
+        $this->showView();
         $this->trashView();
         $this->createView();
         $this->updateView();
@@ -115,6 +117,29 @@ class CrudGenerator extends Command
             $index->filePutContests();
 
             $this->info('Index View Created!');
+        } catch (\Exception $e) {
+            $this->error('Something went wrong!');
+        }
+    }
+
+    private function showView()
+    {
+        $index = new Show($this->name);
+
+        $this->line('Creating Show View...');
+
+        if($index->fileAlreadyExists()) {
+            $this->warn("{$this->name} alredy exists");
+            return;
+        }
+
+        try {
+            // Table
+            $index->setShowTemplate();
+            $index->makeDir();
+            $index->filePutContests();
+
+            $this->info('Show View Created!');
         } catch (\Exception $e) {
             $this->error('Something went wrong!');
         }

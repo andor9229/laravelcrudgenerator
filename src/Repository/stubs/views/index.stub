@@ -26,6 +26,6 @@
             </div>
             @include('pages.{{modelName}}.table')
         </card-component>
-    <div>
+    </div>
 @endsection
 
