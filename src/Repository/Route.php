@@ -57,7 +57,7 @@ class Route extends Crud
             "\tRoute::get(\"{{$name}}\", \"{$this->name}Controller@show\")->name('show');\n" .
             "\tRoute::post(\"/\", \"{$this->name}Controller@store\")->name('store');\n" .
             "\tRoute::patch(\"{{$name}}\", \"{$this->name}Controller@update\")->name('update');\n" .
-            "\tRoute::delete(\"{{$name}}\", \"{$this->name}Controller@delete\")->name('delete');\n" .
+            "\tRoute::delete(\"{{$name}}/delete\", \"{$this->name}Controller@delete\")->name('delete');\n" .
             "\tRoute::delete(\"{id}/force-destroy\", \"{$this->name}Controller@destroy\")->name('destroy');\n" .
             "});\n";
 

@@ -5,7 +5,7 @@
     <div slot="header">
        <h3>Update {{modelName}}</h3>
     </div>
-    <form method="POST" action="{{ route('{{modelNameLowerCase}}.update', ${{modelNameLowerCase}}) }}">
+    <form slot="body" method="POST" action="{{ route('{{modelNameLowerCase}}.update', ${{modelNameLowerCase}}) }}">
         @csrf
         @method('patch')
         @foreach($data as $index => $d)

@@ -23,7 +23,9 @@ class {{modelName}}Controller extends Controller
 
     public function show({{modelName}} ${{modelNameSingularLowerCase}})
     {
-        return view('pages.{{modelName}}.show', compact('{{modelNameSingularLowerCase'));
+        return view('pages.{{modelName}}.show')
+            ->with('{{modelNameSingularLowerCase}}', ${{modelNameSingularLowerCase}})
+            ->with('columns', {{modelName}}::getColumns());
     }
 
     public function store({{modelName}}Request $request)

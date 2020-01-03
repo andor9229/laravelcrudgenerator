@@ -23,9 +23,11 @@ class Update extends Crud
     {
         $this->template = str_replace(
             [
+                '{{modelName}}',
                 '{{modelNameLowerCase}}',
             ],
             [
+                $this->name,
                 Str::lower($this->name),
             ],
             $this->getStub('views/update')

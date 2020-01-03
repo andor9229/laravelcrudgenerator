@@ -9,26 +9,26 @@
     <tr>
         <td class="flex items-center">
             @if($type === 'index')
-                <a href="{{ route('monitor.show', [ 'monitor' => $rows['id'] ]) }}" class="button-icon-gray items-center"><i class="far fa-fw fa-eye"></i></a>
-                <a href="{{ route('monitor.edit', [ 'monitor' => $rows['id'] ]) }}" class="button-icon-gray items-center"><i class="fas fa-edit"></i></a>
+                <a href="{{ route('{{modelNameSingularLowerCase}}.show', [ '{{modelNameSingularLowerCase}}' => $rows['id'] ]) }}" class="button-icon-gray items-center"><i class="far fa-fw fa-eye"></i></a>
+                <a href="{{ route('{{modelNameSingularLowerCase}}.edit', [ '{{modelNameSingularLowerCase}}' => $rows['id'] ]) }}" class="button-icon-gray items-center"><i class="fas fa-edit"></i></a>
                 <confirm-delete-component
                     class="items-center"
-                    url="{{modelNameSingularLowerCase}}/{{${{modelNameSingularLowerCase}}->id}}"
-                    resource="{{${{modelNameSingularLowerCase}}}}"
+                    url="/{{modelNameSingularLowerCase}}/{{$rows['id']}}/delete"
+                    resource="{{$rows}}"
                     match="name"
                     delete-message=""
                     location-href="{{modelNameSingularLowerCase}}"
                 ></confirm-delete-component>
             @endif
             @if($type === 'trash')
-                <a href="{{ route('monitor.restore', [ 'monitor' => $rows['id'] ]) }}" class="button-icon-gray items-center"><i class="far fa-fw fa-redo"></i></a>
+                <a href="{{ route('{{modelNameSingularLowerCase}}.restore', [ 'id' => $rows['id'] ]) }}" class="button-icon-gray items-center"><i class="fas fa-redo"></i></a>
                 <confirm-delete-component
                     class="items-center"
-                    url="{{modelNameSingularLowerCase}}/{{${{modelNameSingularLowerCase}}->id}}/force-destroy"
-                    resource="{{${{modelNameSingularLowerCase}}}}"
+                    url="/{{modelNameSingularLowerCase}}/{{$rows['id']}}/force-destroy"
+                    resource="{{$rows}}"
                     match="name"
                     delete-message=""
-                    location-href="{{modelNameSingularLowerCase}}"
+                    location-href="{{modelNameSingularLowerCase}}/trash"
                 ></confirm-delete-component>
             @endif
         </td>
