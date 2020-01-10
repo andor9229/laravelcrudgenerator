@@ -13,7 +13,6 @@ class LaravelCrudGeneratorServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
     }
 
     /**
@@ -25,7 +24,7 @@ class LaravelCrudGeneratorServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-                CrudGenerator::class
+                CrudGenerator::class,
             ]);
         }
     }

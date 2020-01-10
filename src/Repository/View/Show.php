@@ -1,6 +1,5 @@
 <?php
 
-
 namespace  Andor9229\LaravelCrudGenerator\Repository\View;
 
 use Andor9229\LaravelCrudGenerator\Repository\Crud;
@@ -16,7 +15,7 @@ class Show extends Crud
     {
         $this->name = $name;
         $this->dir = "../resources/views/pages/{$name}";
-        $this->file =  "show.blade.php";
+        $this->file = 'show.blade.php';
     }
 
     public function setShowTemplate()
@@ -35,5 +34,4 @@ class Show extends Crud
             $this->getStub('views/show')
         );
     }
-
 }

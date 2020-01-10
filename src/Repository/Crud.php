@@ -4,23 +4,23 @@ namespace  Andor9229\LaravelCrudGenerator\Repository;
 
 use Illuminate\Support\Facades\File;
 
-class Crud {
-
+class Crud
+{
     protected $template;
 
     protected function getStub($type)
     {
-        return file_get_contents(__DIR__ . "/stubs/$type.stub");
+        return file_get_contents(__DIR__."/stubs/$type.stub");
     }
 
-    public function makeDir($file = NULL)
+    public function makeDir($file = null)
     {
         File::makeDirectory(app_path($this->dir), $mode = 0777, true, true);
     }
 
     public function makeFile()
     {
-        File::makeDirectory(app_path($this->dir . '/' .$this->file), $mode = 0777, true, true);
+        File::makeDirectory(app_path($this->dir.'/'.$this->file), $mode = 0777, true, true);
     }
 
     public function filePutContests()
@@ -38,7 +38,8 @@ class Crud {
         return File::exists(app_path("../{$this->getPath()}"));
     }
 
-    protected function getPath() {
-        return $this->dir . '/' . $this->file;
+    protected function getPath()
+    {
+        return $this->dir.'/'.$this->file;
     }
 }
