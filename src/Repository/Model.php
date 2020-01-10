@@ -2,7 +2,8 @@
 
 namespace  Andor9229\LaravelCrudGenerator\Repository;
 
-class Model extends Crud {
+class Model extends Crud
+{
     protected $name;
     protected $dir;
     protected $file;

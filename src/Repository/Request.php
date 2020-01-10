@@ -19,13 +19,12 @@ class Request extends Crud
     {
         $this->template = str_replace(
             [
-                '{{modelName}}'
+                '{{modelName}}',
             ],
             [
-                $this->name
+                $this->name,
             ],
             $this->getStub('request')
         );
     }
-
 }

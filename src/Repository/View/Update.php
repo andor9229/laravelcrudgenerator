@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Andor9229\LaravelCrudGenerator\Repository\View;
 
 use Andor9229\LaravelCrudGenerator\Repository\Crud;
@@ -16,7 +15,7 @@ class Update extends Crud
     {
         $this->name = $name;
         $this->dir = "../resources/views/pages/{$name}";
-        $this->file =  "update.blade.php";
+        $this->file = 'update.blade.php';
     }
 
     public function setUpdateTemplate()
@@ -33,5 +32,4 @@ class Update extends Crud
             $this->getStub('views/update')
         );
     }
-
 }

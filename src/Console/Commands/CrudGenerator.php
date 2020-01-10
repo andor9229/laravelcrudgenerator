@@ -2,16 +2,16 @@
 
 namespace Andor9229\LaravelCrudGenerator;
 
+use Andor9229\LaravelCrudGenerator\Repository\Controller;
+use Andor9229\LaravelCrudGenerator\Repository\Model;
+use Andor9229\LaravelCrudGenerator\Repository\Request;
+use Andor9229\LaravelCrudGenerator\Repository\Route;
 use Andor9229\LaravelCrudGenerator\Repository\View\Create;
 use Andor9229\LaravelCrudGenerator\Repository\View\Index;
 use Andor9229\LaravelCrudGenerator\Repository\View\Show;
 use Andor9229\LaravelCrudGenerator\Repository\View\Table;
 use Andor9229\LaravelCrudGenerator\Repository\View\Trash;
 use Andor9229\LaravelCrudGenerator\Repository\View\Update;
-use Andor9229\LaravelCrudGenerator\Repository\Controller;
-use Andor9229\LaravelCrudGenerator\Repository\Model;
-use Andor9229\LaravelCrudGenerator\Repository\Route;
-use Andor9229\LaravelCrudGenerator\Repository\Request;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
@@ -82,8 +82,9 @@ class CrudGenerator extends Command
 
         $this->line('Creating View...');
 
-        if($table->fileAlreadyExists()) {
+        if ($table->fileAlreadyExists()) {
             $this->warn("{$this->name} alredy exists");
+
             return;
         }
 
@@ -105,8 +106,9 @@ class CrudGenerator extends Command
 
         $this->line('Creating Index View...');
 
-        if($index->fileAlreadyExists()) {
+        if ($index->fileAlreadyExists()) {
             $this->warn("{$this->name} alredy exists");
+
             return;
         }
 
@@ -128,8 +130,9 @@ class CrudGenerator extends Command
 
         $this->line('Creating Show View...');
 
-        if($index->fileAlreadyExists()) {
+        if ($index->fileAlreadyExists()) {
             $this->warn("{$this->name} alredy exists");
+
             return;
         }
 
@@ -151,8 +154,9 @@ class CrudGenerator extends Command
 
         $this->line('Creating Trash View...');
 
-        if($trash->fileAlreadyExists()) {
+        if ($trash->fileAlreadyExists()) {
             $this->warn("{$this->name} alredy exists");
+
             return;
         }
 
@@ -174,8 +178,9 @@ class CrudGenerator extends Command
 
         $this->line('Creating Create View...');
 
-        if($create->fileAlreadyExists()) {
+        if ($create->fileAlreadyExists()) {
             $this->warn("{$this->name} alredy exists");
+
             return;
         }
 
@@ -197,8 +202,9 @@ class CrudGenerator extends Command
 
         $this->line('Creating Create View...');
 
-        if($update->fileAlreadyExists()) {
+        if ($update->fileAlreadyExists()) {
             $this->warn("{$this->name} alredy exists");
+
             return;
         }
 
@@ -219,13 +225,14 @@ class CrudGenerator extends Command
         $model = new Model($this->name);
         $this->line('Creating Model...');
 
-        if($model->fileAlreadyExists()) {
+        if ($model->fileAlreadyExists()) {
             $this->warn("{$this->name} alredy exists");
+
             return;
         }
 
         try {
-            if(! $model->dirAlreadyExists()) {
+            if (!$model->dirAlreadyExists()) {
                 $model->makeDir();
             }
 
@@ -243,8 +250,9 @@ class CrudGenerator extends Command
         $controller = new Controller($this->name);
         $this->line('Creating Controller...');
 
-        if($controller->fileAlreadyExists()) {
+        if ($controller->fileAlreadyExists()) {
             $this->warn("{$this->name}Controller already exists!");
+
             return;
         }
 
@@ -252,7 +260,7 @@ class CrudGenerator extends Command
             $controller->setControllerTemplate();
             $controller->filePutContests();
 
-            $this->info($this->name . 'Controller created!');
+            $this->info($this->name.'Controller created!');
         } catch (\Exception $e) {
             $this->error('Something went wrong!');
         }
@@ -263,13 +271,14 @@ class CrudGenerator extends Command
         $request = new Request($this->name);
         $this->line('Creating Request...');
 
-        if($request->fileAlreadyExists()) {
+        if ($request->fileAlreadyExists()) {
             $this->warn("{$this->name} already exists");
+
             return;
         }
 
         try {
-            if(! $request->dirAlreadyExists()) {
+            if (!$request->dirAlreadyExists()) {
                 $request->makeDir();
             }
 
@@ -284,12 +293,12 @@ class CrudGenerator extends Command
 
     protected function migration()
     {
-        $migration = "create_" . Str::plural(Str::lower($this->name)) . "_table";
+        $migration = 'create_'.Str::plural(Str::lower($this->name)).'_table';
 
         try {
             $this->line('Creating Migration...');
             Artisan::call("make:migration $migration");
-            $this->info($this->name . 'Migration created!');
+            $this->info($this->name.'Migration created!');
         } catch (\InvalidArgumentException $e) {
             $this->error('Something went wrong!');
         }
@@ -300,13 +309,14 @@ class CrudGenerator extends Command
         $this->line('Creating Route...');
         $route = new Route($this->name);
 
-        if($route->routeAlreadyPresent()) {
+        if ($route->routeAlreadyPresent()) {
             $this->warn('Route is already exists');
+
             return;
         }
 
         try {
-            if(! $route->fileAlreadyExists()) {
+            if (!$route->fileAlreadyExists()) {
                 $route->makeCrudFile();
                 $route->includeCrudFile();
             }

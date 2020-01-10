@@ -1,6 +1,5 @@
 <?php
 
-
 namespace  Andor9229\LaravelCrudGenerator\Repository\View;
 
 use Andor9229\LaravelCrudGenerator\Repository\Crud;
@@ -16,7 +15,7 @@ class Index extends Crud
     {
         $this->name = $name;
         $this->dir = "../resources/views/pages/{$name}";
-        $this->file =  "index.blade.php";
+        $this->file = 'index.blade.php';
     }
 
     public function setIndexTemplate()
@@ -35,5 +34,4 @@ class Index extends Crud
             $this->getStub('views/index')
         );
     }
-
 }

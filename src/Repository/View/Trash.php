@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Andor9229\LaravelCrudGenerator\Repository\View;
 
 use Andor9229\LaravelCrudGenerator\Repository\Crud;
@@ -16,7 +15,7 @@ class Trash extends Crud
     {
         $this->name = $name;
         $this->dir = "../resources/views/pages/{$name}";
-        $this->file =  "trash.blade.php";
+        $this->file = 'trash.blade.php';
     }
 
     public function setTrashTemplate()
@@ -33,5 +32,4 @@ class Trash extends Crud
             $this->getStub('views/trash')
         );
     }
-
 }

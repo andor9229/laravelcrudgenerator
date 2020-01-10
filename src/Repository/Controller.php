@@ -4,7 +4,8 @@ namespace Andor9229\LaravelCrudGenerator\Repository;
 
 use Illuminate\Support\Str;
 
-class Controller extends Crud {
+class Controller extends Crud
+{
     protected $name;
     protected $dir;
     protected $file;
@@ -32,5 +33,4 @@ class Controller extends Crud {
             $this->getStub('controller')
         );
     }
-
 }
